@@ -1,5 +1,11 @@
 class ApplicationController < ActionController::Base
+  include JSONAPI::ActsAsResourceController
+
   attr_reader :current_user
+
+  def context
+    {current_user: current_user}
+  end
 
   protected
   def authenticate_request!
