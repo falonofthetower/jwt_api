@@ -1,6 +1,7 @@
 class TodoResource < JSONAPI::Resource
   attribute :task
   attribute :points
+  belongs_to :user
 
   before_save :add_user
 
