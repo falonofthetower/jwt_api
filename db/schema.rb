@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170120212957) do
+ActiveRecord::Schema.define(version: 20170129012018) do
+
+  create_table "assignments", force: :cascade do |t|
+    t.integer  "assigner_id"
+    t.integer  "assignee_id"
+    t.datetime "due"
+    t.integer  "todo_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["assignee_id"], name: "index_assignments_on_assignee_id"
+    t.index ["assigner_id"], name: "index_assignments_on_assigner_id"
+    t.index ["todo_id"], name: "index_assignments_on_todo_id"
+  end
 
   create_table "todos", force: :cascade do |t|
     t.string   "task"

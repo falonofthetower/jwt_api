@@ -1,0 +1,2 @@
+class AssignerResource < UserResource
+end
