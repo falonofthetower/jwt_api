@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
   before_action :authenticate_request!
+  def me
+    require 'pry'; binding.pry;
+  end
   # before_action :set_user, only: [:show, :update, :destroy]
 
   # # GET /users

@@ -1,0 +1,2 @@
+class MyAssignmentsController < AssignmentsController
+end
