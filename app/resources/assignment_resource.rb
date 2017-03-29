@@ -1,6 +1,6 @@
 class AssignmentResource < JSONAPI::Resource
   attribute :due
-  attribute :finished
+  attribute :status
   belongs_to :assigner
   belongs_to :assignee
   belongs_to :todo

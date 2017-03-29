@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170227194749) do
+ActiveRecord::Schema.define(version: 20170328222100) do
 
   create_table "assignments", force: :cascade do |t|
     t.integer  "assigner_id"
     t.integer  "assignee_id"
     t.datetime "due"
     t.integer  "todo_id"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.string   "status"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.string   "status",      default: "requested"
     t.boolean  "finished",    default: false
     t.index ["assignee_id"], name: "index_assignments_on_assignee_id"
     t.index ["assigner_id"], name: "index_assignments_on_assigner_id"
