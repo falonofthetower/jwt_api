@@ -8,4 +8,9 @@ class TodoResource < JSONAPI::Resource
   def add_user
     @model.user_id = @context[:current_user].id if @model.assigner.nil?
   end
+
+  def self.records(options = {})
+    context = options[:context]
+    context[:current_user].todos
+  end
 end
