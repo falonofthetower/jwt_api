@@ -7,3 +7,10 @@ local: &local
   :inline: true
 development: *local
 test: *local
+production: &production
+  :url: <%= ENV["REDIS_URL"] %>
+  :host: <%= URI.parse(ENV["REDIS_URL"]).host %>
+  :port: <%= URI.parse(ENV["REDIS_URL"]).port %>
+  :password: <%= URI.parse(ENV["REDIS_URL"]).port %>
+  :inline: true
+  :timeout: 1
