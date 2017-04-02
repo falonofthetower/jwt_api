@@ -11,6 +11,6 @@ class User < ApplicationRecord
   has_many :requested_tasks, through: :assignments, class_name: 'Todo', foreign_key: 'assigner_id', source: 'todo'
 
   def authorized_assignments
-    (self.assignments + self.requests).uniq
+    assignments.merge(requests)
   end
 end

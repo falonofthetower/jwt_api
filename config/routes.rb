@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   jsonapi_resources :users, except: :create
   jsonapi_resources :todos
   jsonapi_resources :assignments
-  resources :my_assignments
-  resources :my_requests
+  # resources :assignments
+  # resources :my_assignments
+  # resources :my_requests
   devise_for :users, :controllers => {:registrations => "registrations"}
   post 'auth_user' => 'authentication#authenticate'
   get 'home' => 'home#index'

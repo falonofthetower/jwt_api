@@ -5,7 +5,14 @@ class AssignmentResource < JSONAPI::Resource
   belongs_to :assignee
   belongs_to :todo
 
+  filter :status
+
   before_save do
     @model.assigner_id = context[:current_user].id if @model.new_record?
+  end
+
+  def self.records(options = {})
+    context = options[:context]
+    context[:current_user].authorized_assignments
   end
 end
