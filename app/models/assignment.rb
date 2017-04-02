@@ -6,6 +6,6 @@ class Assignment < ApplicationRecord
 
 
   def broadcast
-    ActionCable.server.broadcast 'messages', @attributes
+    ActionCable.server.broadcast("assignments", @attributes)
   end
 end
