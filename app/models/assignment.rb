@@ -6,6 +6,7 @@ class Assignment < ApplicationRecord
 
 
   def broadcast
-    ActionCable.server.broadcast("assignments", @attributes)
+    transformed_data = JSONAPI::ResourceSerializer.new(AssignmentResource).serialize_to_hash(AssignmentResource.new(self, nil))
+    ActionCable.server.broadcast("assignments", transformed_data)
   end
 end

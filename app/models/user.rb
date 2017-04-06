@@ -11,6 +11,6 @@ class User < ApplicationRecord
   has_many :requested_tasks, through: :assignments, class_name: 'Todo', foreign_key: 'assigner_id', source: 'todo'
 
   def authorized_assignments
-    assignments.merge(requests)
+    Assignment.where('assignee_id=? OR assigner_id=?', id, id)
   end
 end

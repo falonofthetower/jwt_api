@@ -5,7 +5,7 @@ class AssignmentResource < JSONAPI::Resource
   belongs_to :assignee
   belongs_to :todo
 
-  filter :status
+  filters :status, :assigner_id, :assignee_id
 
   before_save do
     @model.assigner_id = context[:current_user].id if @model.new_record?
