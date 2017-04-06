@@ -3,6 +3,7 @@ class Assignment < ApplicationRecord
   belongs_to :assigner, class_name: 'User', foreign_key: 'assigner_id'
   belongs_to :todo
   after_save :broadcast
+  default_scope { order(updated_at: :desc) }
 
 
   def broadcast
